@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>97141096046-f3aaac3ui8oqs9i2vdvi84ir6ka3n4p1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.97141096046-f3aaac3ui8oqs9i2vdvi84ir6ka3n4p1</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCtwjmm8hc9ZGojhziedr0AuTM4QjCwFkY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>97141096046</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kerimbora.guzelankaram</string>
+	<key>PROJECT_ID</key>
+	<string>guzelankaram-6e859</string>
+	<key>STORAGE_BUCKET</key>
+	<string>guzelankaram-6e859.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:97141096046:ios:f22ff74fabc6e98f47707f</string>
+	<key>DATABASE_URL</key>
+	<string>https://guzelankaram-6e859.firebaseio.com</string>
+</dict>
+</plist>

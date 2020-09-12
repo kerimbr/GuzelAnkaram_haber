@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "97141096046",
+    "firebase_url": "https://guzelankaram-6e859.firebaseio.com",
+    "project_id": "guzelankaram-6e859",
+    "storage_bucket": "guzelankaram-6e859.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97141096046:android:dfadbe26ca74599b47707f",
+        "android_client_info": {
+          "package_name": "com.kerimbora.guzelankaram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97141096046-fg74gdkf0jk66c98vd0uukgdmeirhfql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3gF5dv32pAM4LUPIE4TeUBaU36ry_4e8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97141096046-fg74gdkf0jk66c98vd0uukgdmeirhfql.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
