@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guzelankaram/locator.dart';
-import 'package:guzelankaram/models/ApiModel.dart';
+import 'package:guzelankaram/models/post_model.dart';
 import 'package:guzelankaram/models/category_model.dart';
 import 'package:guzelankaram/models/search_model.dart';
 import 'package:guzelankaram/uvvm_repository/repository.dart';
@@ -12,17 +12,23 @@ enum ViewState { IDLE, BUSY }
 
 class ViewModel with ChangeNotifier{
 
+  /*
+  * ViewModel Sınıfı Repository Sınıfı ve Arayüz sınıflarını ayırmak karmaşıklığı önlemek için
+  * köprü görevi gören bir sınıftır.
+  *
+  * NOT: Bu proje için görevini tam amacı ile kullanılmamıştır. UVVM mimarisini bozmamak için ekledim.
+  * Benim kullanım amacım direk Repository sınıfının metodlarına ulaşmak içindir ViewState hiç kullanılmamıştır.
+  * Gerekli yerlerde ViewState ile arayüz güncellenebilir.
+  *
+  * */
+
+
   Repository _repository = locator<Repository>();
   ViewState _state = ViewState.IDLE;
 
   ViewState get state => _state;
 
 
-
-  Future<List<ApiModel>> getPost() async {
-    var result = await _repository.getPost();
-    return result;
-  }
 
   Future<String> getPostMedia(int mediaId) async {
     var result = await _repository.getPostMedia(mediaId);
@@ -45,7 +51,7 @@ class ViewModel with ChangeNotifier{
     return result;
   }
 
-  Future<ApiModel> getPostId(String id) async{
+  Future<Post> getPostId(String id) async{
     var result = await _repository.getPostId(id);
     return result;
   }
@@ -70,11 +76,6 @@ class ViewModel with ChangeNotifier{
     return result;
   }
 
-
-  Future<bool> registerNotificationService() async {
-    var result = await _repository.registerNotificationService();
-    return result;
-  }
 
   Future<List<SearchModel>> getSearchResult(String searchText) async{
     var result = await _repository.getSearchResult(searchText);

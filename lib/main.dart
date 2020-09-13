@@ -15,6 +15,7 @@ class GuzelAnkaram extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: "Güzel Ankaram",
       theme: ThemeData(
         primaryColor: Colors.grey.shade800,// Color(0xff222222),
         primarySwatch: Colors.grey,

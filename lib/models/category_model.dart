@@ -4,6 +4,11 @@ import 'package:html/parser.dart';
 
 class CategoryModel{
 
+  /*
+  * CategoryModel sınıfı Kategorilerin ID ve Name alanlarını tutması için oluşturuldu
+  *
+  * */
+
   String id;
   String name;
 

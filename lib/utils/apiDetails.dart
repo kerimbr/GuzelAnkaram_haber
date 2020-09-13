@@ -1,5 +1,10 @@
 class ApiDetails{
 
+  /*
+  * ApiDetails sınıfı API bilgilerini içeren değişkenleri bulunddurmaktadır.
+  * Amacı bu değişkenlere heryerden kolayca ulaşmak için hazırlanmıştır.
+  * */
+
   static String logoUrl = "https://guzelankaram.com/wp-content/uploads/2020/09/WhatsApp-Image-2020-09-07-at-8.24.09-PM.jpeg";
 
 

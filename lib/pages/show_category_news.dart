@@ -6,6 +6,12 @@ import 'package:guzelankaram/widgets/news_card.dart';
 import 'package:provider/provider.dart';
 
 class ShowCategoryNews extends StatefulWidget {
+
+  /*
+  * Kategoriye Ait Haberleri Gösteren Sayfa
+  * */
+
+
   String categoryId;
   String categoryName;
 

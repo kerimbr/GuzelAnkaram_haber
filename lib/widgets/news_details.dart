@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:guzelankaram/models/ApiModel.dart';
+import 'package:guzelankaram/models/post_model.dart';
 import 'package:guzelankaram/uvvm_viewmodel/view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NewsDetailsPage extends StatefulWidget {
-  ApiModel news;
+
+  // Haberi Detaylarını Gösteren Widget
+
+  Post news;
 
   NewsDetailsPage({this.news});
 
@@ -27,7 +30,7 @@ class _NewsDetailsPageState extends State<NewsDetailsPage> {
 
     ViewModel _viewmodel = Provider.of<ViewModel>(context);
 
-    ApiModel news = widget.news;
+    Post news = widget.news;
     return SafeArea(
       child: Scaffold(
         key: _newsDetailScaffoldKey,

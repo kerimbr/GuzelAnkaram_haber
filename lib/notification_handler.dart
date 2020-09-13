@@ -1,15 +1,20 @@
 
 import 'dart:io';
-
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:guzelankaram/pages/show_post_with_id.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
 
-FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
 // TOP LEVEL Türünde arkaplanda bildirim yakalama metodu
+
+FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
 Future<void> myBackgroundMessageHandler(Map<String, dynamic> message) {
   if (message.containsKey('data')) {
     // Handle data message
@@ -35,6 +40,10 @@ Future<void> myBackgroundMessageHandler(Map<String, dynamic> message) {
 
 class NotificationHandler{
 
+  /*
+    NotificationHandler Sınıfı Google sunucusuna gönderilen bildirim API'sini yakalamak ile görevlidir.
+    Ayrıca FCM kurulumu ve Flutter Local Notification ile bildirim gösterme görevleri de vardır.
+   */
 
   // Tek Bir nesne Oluşturmak ve Herzaman bu Sınıftan Bu nesne ile çalışmak için gerekli singleton yapısı
   static final NotificationHandler _singleton =   NotificationHandler._internal();
@@ -46,8 +55,12 @@ class NotificationHandler{
   // Fİrebase Cloud Message Sınıfından nesne oluştur
   FirebaseMessaging _fcm = FirebaseMessaging();
 
+  BuildContext myContext;
 
-  initializeFCMNotification() async{
+  // Flutter Local Notification Plugin Kurulumu
+  initializeFCMNotification(BuildContext context) async{
+
+    myContext = context;
 
 
     // Flutter Local Notification Plugin Kurulumu
@@ -57,11 +70,14 @@ class NotificationHandler{
     var initializationSettings =    InitializationSettings(
         initializationSettingsAndroid, initializationSettingsIOS);
     await flutterLocalNotificationsPlugin.initialize(initializationSettings,
-        onSelectNotification: selectNotification);
+        onSelectNotification: selectNotification
+    );
 
 
     // Bildirim Kanalına Kayıt ol
-    _fcm.subscribeToTopic("/topics/all");
+   // if(await _viewModel.registeredNotifications()) {
+      _fcm.subscribeToTopic("/topics/all");
+   // }
 
     // fcm ayarları
     _fcm.configure(
@@ -117,6 +133,7 @@ class NotificationHandler{
         payload: message["data"]["id"]
     );
 
+
   }
 
 
@@ -125,6 +142,11 @@ class NotificationHandler{
   Future selectNotification(String payload) {
     if (payload != null) {
       print('Bildirime Tıklanınca Gelen Veri(ANDROID)' + payload);
+      // Bildirime Tıklanınca Haber ID'sini ShowPostWithId Sayfasına Gönder
+      Route r = MaterialPageRoute(
+        builder: (context) => ShowPostWithId(postId: payload,myContext: myContext,)
+      );
+      Navigator.of(myContext,rootNavigator: true).push(r);
     }
   }
 
@@ -135,6 +157,8 @@ class NotificationHandler{
     }
   }
 
+
+  // API ile gelen image-url linkinden dosyayı indir ve kaydet (BİLDİRİMDE GÖSTEİLEN GÖRSEL)
   Future<String> _downloadAndSaveFile(String url, String fileName) async {
     var directory = await getApplicationDocumentsDirectory();
     var filePath = '${directory.path}/$fileName';

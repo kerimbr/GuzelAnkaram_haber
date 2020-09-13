@@ -1,6 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
+/*
+*
+* BottomNavigationButton'lar için Tab Itemlar
+*
+* */
+
+
+
 enum TabItem{
  AnaSayfa,
  Kategoriler,

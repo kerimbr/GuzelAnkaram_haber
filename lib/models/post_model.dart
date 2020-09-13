@@ -2,7 +2,12 @@
 
 import 'package:html/parser.dart';
 
-class ApiModel{
+class Post{
+
+  /*
+  * Post Sınıfı API'den gelen Gönderiler için özel oluşturulmuş bir sınıftır.
+  * Haber verilerini tutar.
+  * */
 
   String id;
   String title;
@@ -14,7 +19,7 @@ class ApiModel{
 
   String mediaUrl;
 
-  ApiModel({
+  Post({
     this.title,
     this.id,
     this.content,
@@ -25,7 +30,7 @@ class ApiModel{
     this.mediaUrl
   });
 
-  ApiModel.fromJson(Map<String,dynamic> map):
+  Post.fromJson(Map<String,dynamic> map):
       title = parseHtmlString(map["title"]["rendered"]),
       id = map["id"].toString(),
       content = parseHtmlString(map["content"]["rendered"]),

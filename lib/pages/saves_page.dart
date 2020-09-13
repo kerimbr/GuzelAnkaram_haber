@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 class SavesPage extends StatefulWidget {
 
- // SavesPage(Key key) : super(key:key);
+ // Kaydedilen Haberler Sayfası
 
   @override
   _SavesPageState createState() => _SavesPageState();

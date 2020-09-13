@@ -3,12 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:guzelankaram/models/ApiModel.dart';
+import 'package:guzelankaram/models/post_model.dart';
 import 'package:guzelankaram/uvvm_viewmodel/view_model.dart';
 import 'package:guzelankaram/widgets/news_details.dart';
 import 'package:provider/provider.dart';
 
 class NewsCard extends StatefulWidget {
+
+  // Haber Önizlemesini oluşturan Widget
 
   String newsId;
   Key key;
@@ -29,11 +31,11 @@ class _NewsCardState extends State<NewsCard> with AutomaticKeepAliveClientMixin{
     ViewModel _viewmodel = Provider.of<ViewModel>(context);
     String newsId = widget.newsId;
 
-    return FutureBuilder<ApiModel>(
+    return FutureBuilder<Post>(
       future: getData(newsId),
       builder: (context, snapshot) {
         if(snapshot.hasData){
-        ApiModel news = snapshot.data;
+        Post news = snapshot.data;
         return Stack(
           children: <Widget>[
             Card(
@@ -260,10 +262,10 @@ class _NewsCardState extends State<NewsCard> with AutomaticKeepAliveClientMixin{
     );
   }
 
-  Future<ApiModel> getData(String newsId) async{
+  Future<Post> getData(String newsId) async{
     ViewModel _viewmodel = Provider.of<ViewModel>(context,listen: false);
 
-    ApiModel post;
+    Post post;
     post = await _viewmodel.getPostId(newsId);
     post.mediaUrl = await _viewmodel.getPostMedia(post.mediaId);
     return post;

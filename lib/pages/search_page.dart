@@ -10,6 +10,9 @@ import 'package:provider/provider.dart';
 
 
 class SearchPage extends StatefulWidget {
+
+  // Arama Sayfası
+
   @override
   _SearchPageState createState() => _SearchPageState();
 }
@@ -128,51 +131,6 @@ class _SearchPageState extends State<SearchPage> {
                       },
                       itemBuilder: (context,index){
                         return NewsCard(newsId: snapshot.data[index].id);
-                        /*return  Card(
-                            color: Colors.grey.shade700,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)
-                            ),
-                            child: Container(
-                              width: MediaQuery.of(context).size.width,
-                              child: Column(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal : 10, vertical: 5),
-                                    child: Text(
-                                        "${snapshot.data[index].title}",
-                                      textAlign: TextAlign.center,
-                                      style: GoogleFonts.montserrat(
-                                        fontSize: 24,
-                                        color: Colors.grey.shade200
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(height: 5),
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Text(
-                                        "Daha Fazla Detay İçin Dokunun",
-                                        style: TextStyle(
-                                          fontSize: 10,
-                                          color: Colors.orangeAccent,
-                                        ),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Icon(
-                                        AntDesign.rightcircle,
-                                        color: Colors.grey.shade200,
-                                        size: 10,
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(height: 5),
-                                ],
-                              ),
-                            )
-                        );*/
                       },
                     );
                   }else{

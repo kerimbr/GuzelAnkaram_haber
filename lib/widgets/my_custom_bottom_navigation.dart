@@ -3,6 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:guzelankaram/widgets/tab_items.dart';
 
 class MyCustomBottomNavigation extends StatelessWidget {
+
+  /*
+  * BottomNavigationButton'lar için özelleştirilmiş Widget sınıfı.
+  * HomePage'de Stack Yapısını oluşturur.
+  * */
+
+
   const MyCustomBottomNavigation({
     Key key, @required this.currentTab,
     @required this.onSelectedTab,

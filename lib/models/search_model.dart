@@ -4,6 +4,11 @@ import 'package:html/parser.dart';
 
 class SearchModel{
 
+  /*
+  * SearchModel Sınıfı API'nin search path'i ile gelen veri için özel hazırlanmıştır.
+  * Aranmış gönderilerin ID ve Name alanlarını tutar.
+  * */
+
   String id;
   String title;
 

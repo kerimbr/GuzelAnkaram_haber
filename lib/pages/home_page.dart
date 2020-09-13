@@ -1,15 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:guzelankaram/notification_handler.dart';
 import 'package:guzelankaram/pages/categories_page.dart';
 import 'package:guzelankaram/pages/news_page.dart';
 import 'package:guzelankaram/pages/saves_page.dart';
-import 'package:guzelankaram/uvvm_viewmodel/view_model.dart';
 import 'package:guzelankaram/widgets/my_custom_bottom_navigation.dart';
 import 'package:guzelankaram/widgets/tab_items.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,6 +13,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+
+  /*
+  * Bu Sınıfın amacı bir Stack yapısı ile bottomNavigationBar ve body kısmını ayırmak için kullanıldı.
+  * bottomNavigationBar Tablarında bir değişiklik olduğunda buna göre body kısmı değiştiriliyor.
+  * */
 
 
   TabItem currentTab = TabItem.AnaSayfa;
@@ -41,14 +43,12 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
-    NotificationHandler().initializeFCMNotification();
+    NotificationHandler().initializeFCMNotification(context);
   }
 
 
   @override
   Widget build(BuildContext context) {
-    ViewModel _viewmodel = Provider.of<ViewModel>(context);
 
     return Scaffold(
       backgroundColor: Color(0xff222222),
@@ -66,6 +66,13 @@ class _HomePageState extends State<HomePage> {
           navigatorKeys: navigatorKeys,
           buildPage: allPagesWidget(),
           onSelectedTab: (selected){
+
+            // seçilen Tab Aynı Tab ise ilk rotaya dön
+            if(selected == currentTab){
+              navigatorKeys[selected].currentState.popUntil((route) => route.isFirst);
+            }
+
+            // seçilen tab farklı ilse currentTab'ı değiştir.
             setState(() {
               currentTab = selected;
             });

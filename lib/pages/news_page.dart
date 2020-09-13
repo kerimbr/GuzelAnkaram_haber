@@ -10,7 +10,8 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NewsPage extends StatefulWidget {
-  //NewsPage(Key key) : super(key:key);
+
+  // ANA SAYFA
 
   @override
   _NewsPageState createState() => _NewsPageState();
@@ -439,10 +440,6 @@ class _NewsPageState extends State<NewsPage> {
     ids = postsAndPageInfo["postIDs"];
     totalPage = int.parse(postsAndPageInfo["totalPages"]);
 
-    // Bildirimler için Bu Cihazı Kaydet
-    //if (await _viewmodel.registeredNotifications() == false) {
-      //await _viewmodel.registerNotificationService();
-    //}
 
     loadingPage = false;
 

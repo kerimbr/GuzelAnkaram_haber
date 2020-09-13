@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 
 class CategoriesPage extends StatefulWidget {
 
-  //CategoriesPage(Key key) : super(key:key);
+  // Tüm Kategoriler Sayfası
 
   @override
   _CategoriesPageState createState() => _CategoriesPageState();
